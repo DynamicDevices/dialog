@@ -9,7 +9,7 @@ copy package.json .
 copy package-lock.json .
 run npm ci
 copy . .
-from node:${NODE_VERSION}
+from node:${NODE_VERSION}-slim
 workdir /app
 copy --from=build /app /app
 run apt-get update > /dev/null && apt-get install -y jq curl dnsutils netcat-openbsd > /dev/null
